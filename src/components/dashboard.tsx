@@ -1,7 +1,7 @@
 'use client';
 
 import {useState, useEffect, useMemo, useCallback} from 'react';
-import type {PriceData, Signal, User} from '@/lib/types';
+import type {PriceData, Signal, User, TradingSignalInput} from '@/lib/types';
 import {generateSignalAction} from '@/app/actions';
 import {Button} from '@/components/ui/button';
 import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
@@ -327,6 +327,7 @@ export default function Dashboard() {
         timeframe: selectedTimeframe,
         currentPrice: priceData.price,
         riskRewardRatio: selectedRR,
+        prices: [], // Populated in server action
       }, user.uid);
       
       if (signalsCollection) {

@@ -379,6 +379,7 @@ export default function Dashboard() {
         timeframe: selectedTimeframe,
         riskRewardRatio: selectedRR,
         currentPrice: priceData.price,
+        prices: [], // Populated in server action
       };
 
       const newSignal = await generateSignalAction(signalInput, user.uid);
@@ -436,7 +437,7 @@ export default function Dashboard() {
       <div className="max-w-7xl mx-auto space-y-4 md:space-y-6">
         <header className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
             <div className='relative flex items-center justify-center md:justify-between w-full md:w-auto'>
-                <Image src="/logo.png" alt="BULLIONS BOT Logo" width={200} height={50} className="h-auto" />
+                <Image src="/logo.png" alt="BULLIONS BOT Logo" width={200} height={50} className="h-auto" priority />
                 <Button variant="ghost" size="icon" onClick={() => auth.signOut()} className="absolute right-0 top-1/2 -translate-y-1/2 md:hidden">
                     <LogOut className="h-5 w-5" />
                     <span className='sr-only'>Log Out</span>

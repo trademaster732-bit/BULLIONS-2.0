@@ -86,3 +86,13 @@ export interface Plan {
     interval: 'month' | 'year';
     description: string;
 }
+
+export interface TradingSignalInput {
+  timeframe: string;
+  currentPrice: number;
+  riskRewardRatio: string;
+  prices: number[];
+  volatility?: number;
+  higherTimeframeTrend?: 'BULLISH' | 'BEARISH' | 'NEUTRAL';
+  session?: string;
+}
